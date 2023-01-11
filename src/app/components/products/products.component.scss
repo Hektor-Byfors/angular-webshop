@@ -1,0 +1,38 @@
+.container {
+    width: 90%;
+    margin: auto;
+    .cardContainer {
+        display: flex;
+        flex-wrap: wrap;
+        .card {
+            border: 2px solid black;
+            display: flex;
+            padding: 30px;
+            border-radius: 5px;
+            width: 500px;
+            margin: 0 20px 20px 0;
+            img {
+                width: 200px;
+            }
+            div {
+                margin-left: 10px;
+                div {
+                    margin: 0;
+                    display: flex;
+                    width: 100%;
+                    justify-content: end;
+                    align-items: center;
+                    p {
+                        color: red;
+                        font-weight: 900;
+                    }
+                    button {
+                        height: 30px;
+                        margin-left: 10px;
+                    }
+                }
+            }
+        }
+   
+    }
+}
