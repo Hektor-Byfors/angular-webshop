@@ -1,19 +1,4 @@
 <div class="container">
-    <h1>Products</h1>
-
-    <div class="cardContainer">
-        <div class="card" *ngFor="let p of products">
-            <img [src]="p.imageUrl">
-            <div>
-                <p>{{ p.name }}</p>
-                <p>{{ p.description }}</p>
-                <p>From {{ p.year }}</p>
-                <div>
-                    <p>{{ p.price }}kr</p>
-                    <button>Add to cart</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    <app-product *ngFor="let product of products" [product]="product"></app-product>
 </div>
 

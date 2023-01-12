@@ -8,6 +8,8 @@ import { ProductsComponent } from './components/products/products.component';
 import { CartComponent } from './components/cart/cart.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { ProductComponent } from './components/product/product.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { NotfoundComponent } from './components/notfound/notfound.component';
     ProductsComponent,
     CartComponent,
     AdminComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    MenuComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,
