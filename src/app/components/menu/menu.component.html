@@ -1,6 +1,6 @@
 <nav>
     <ul>
         <li><a routerLink="/products">Products</a></li>
-        <li><a routerLink="/cart">Cart</a><span></span></li>
+        <li (click)="currentProductsInCart()"><a routerLink="/cart">Cart</a><span *ngIf="showCartNumber">{{ products.length }}</span></li>
     </ul>
 </nav>

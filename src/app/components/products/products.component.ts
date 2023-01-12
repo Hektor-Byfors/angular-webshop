@@ -26,7 +26,7 @@ export class ProductsComponent implements OnInit {
     "category": null
     }
     ]},{
-      "id": 76,
+      "id": 75,
       "name": "The Dark Knight",
       "description": "When the menace known as the Joker emerges from his mysterious past, he wreaks havoc and chaos on the people of Gotham, the Dark Knight must accept one of the greatest psychological and physical tests of his ability to fight injustice",
       "price": 199,
@@ -43,7 +43,7 @@ export class ProductsComponent implements OnInit {
       "category": null
       }
       ]},{
-        "id": 76,
+        "id": 74,
         "name": "The Dark Knight",
         "description": "When the menace known as the Joker emerges from his mysterious past, he wreaks havoc and chaos on the people of Gotham, the Dark Knight must accept one of the greatest psychological and physical tests of his ability to fight injustice",
         "price": 199,

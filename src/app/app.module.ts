@@ -10,6 +10,7 @@ import { AdminComponent } from './components/admin/admin.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { ProductComponent } from './components/product/product.component';
+import { CartService } from './services/cart.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { ProductComponent } from './components/product/product.component';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [CartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
