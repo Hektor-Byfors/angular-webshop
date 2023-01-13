@@ -9,18 +9,12 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class MenuComponent implements OnInit {
   products: product[] = [];
-  showCartNumber: boolean = false;
 
   constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
-    this.cartService.productEmitter.subscribe((product) => {
-      this.products.push(product);
-      this.showCartNumber = true;
+    this.cartService.cartObservable.subscribe((cartProducts) => {
+      this.products = cartProducts
     })
-  }
-
-  currentProductsInCart(){
-    this.cartService.raiseProductsInCartEmitter(this.products);
   }
 }

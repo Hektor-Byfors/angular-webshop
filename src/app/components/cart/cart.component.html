@@ -1,3 +1,10 @@
-<div>
-    <app-product *ngFor="let cartProduct of cartProducts" [product]="cartProduct"></app-product>
+<div class="cards">
+    <div class="cart-card" *ngFor="let cartProduct of cartProducts; let i = index">
+        <img [src]="cartProduct.imageUrl">
+        <h4>{{ cartProduct.name }}</h4>
+        <button (click)="remove(i)">Remove from cart</button>
+    </div>
+</div>
+<div class="button">
+    <button routerLink="/checkout">Checkout</button>
 </div>

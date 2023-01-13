@@ -16,6 +16,6 @@ export class ProductComponent implements OnInit {
   }
 
   addToCart(product: product) {
-    this.cartService.raiseProductEmitter(this.product);
+    this.cartService.pushProductToCart(this.product);
   }
 }

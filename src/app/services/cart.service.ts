@@ -1,22 +1,32 @@
 import { Injectable } from '@angular/core';
 import { product } from '../models/product';
-import { Subject } from "rxjs"
+import { Subject, Observable } from "rxjs"
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
-  //productEmitter = new EventEmitter<product>();
-  productEmitter = new Subject<product>();
-  productsInCart = new Subject<product[]>();
+  currentProductsInCart: product[] = [];
+
+  cartObservable = new Observable<product[]>((observer) => {
+    observer.next(this.currentProductsInCart)
+  })
+
+/*   productEmitter = new Subject<product>();
+  productsInCart = new Subject<product[]>(); */
 
   constructor() { }
 
-  raiseProductEmitter(product: product){
-    this.productEmitter.next(product);
+  pushProductToCart(product: product){
+    this.currentProductsInCart.push(product);
+    //this.productEmitter.next(product);
   }
 
-  raiseProductsInCartEmitter(products: product[]){
+  /* raiseProductsInCartEmitter(products: product[]){
     this.productsInCart.next(products);
+  } */
+
+  getProductsInCart(): Observable<product[]> {
+    return this.cartObservable
   }
 }
