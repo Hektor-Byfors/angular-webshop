@@ -12,7 +12,7 @@ export class CheckoutComponent implements OnInit {
 
   constructor(private cartService: CartService) {
   }
-  
+
   ngOnInit(): void {
     this.cartService.cartObservable.subscribe((cartProducts) => {
       this.cartProducts = cartProducts

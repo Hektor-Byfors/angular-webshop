@@ -12,6 +12,8 @@ import { MenuComponent } from './components/menu/menu.component';
 import { ProductComponent } from './components/product/product.component';
 import { CartService } from './services/cart.service';
 import { CheckoutComponent } from './components/checkout/checkout.component';
+import { CheckoutFormComponent } from './components/checkout-form/checkout-form.component';
+import { ReactiveFormsModule } from '@angular/forms'
 
 @NgModule({
   declarations: [
@@ -23,11 +25,13 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
     MenuComponent,
     ProductComponent,
     CheckoutComponent,
+    CheckoutFormComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [CartService],
   bootstrap: [AppComponent]

@@ -1,0 +1,11 @@
+<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+    <label>Name</label>
+    <input type="text" formControlName="name"/>
+    <label>Payment method</label>
+    <select formControlName="payment">
+        <option>Card</option>
+        <option>Paypal</option>
+        <option>Swish</option>
+    </select>
+    <button type="submit">Complete order</button>
+</form>
