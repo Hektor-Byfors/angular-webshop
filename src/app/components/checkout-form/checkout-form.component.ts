@@ -22,7 +22,7 @@ export class CheckoutFormComponent implements OnInit {
 
   order = {
     companyId: 990218,
-    created: "",
+    created: new Date(),
     createdBy: "test subject",
     paymentMethod: "Swish",
     totalPrice: 100,
@@ -31,7 +31,7 @@ export class CheckoutFormComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.checkoutForm.value);
+    //console.log(this.checkoutForm.value);
     this.http.post(this.apiPostUrl, this.order).subscribe((res) => {
       console.log(res);
     })
