@@ -31,9 +31,9 @@ export class CheckoutFormComponent implements OnInit {
   }
 
   onSubmit(){
-    //console.log(this.checkoutForm.value);
-    this.http.post(this.apiPostUrl, this.order).subscribe((res) => {
+    console.log(this.checkoutForm.value);
+    /* this.http.post(this.apiPostUrl, this.order).subscribe((res) => {
       console.log(res);
-    })
+    }) */
   }
 }
