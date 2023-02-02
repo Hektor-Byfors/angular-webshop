@@ -1,6 +1,7 @@
 <div class="container">
     <h2>Checkout</h2>
-    <p>{{ cartProducts.length }} Products in cart</p>
+    <p *ngIf="cartProducts.length">{{ cartProducts.length }} Product(s) in cart</p>
+    <p *ngIf="!cartProducts.length">Cart is empty!</p>
     <button routerLink="/cart">Go to cart</button>
-    <app-checkout-form></app-checkout-form>
+    <app-checkout-form [cartProducts]="cartProducts"></app-checkout-form>
 </div>
