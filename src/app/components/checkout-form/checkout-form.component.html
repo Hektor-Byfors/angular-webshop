@@ -7,5 +7,5 @@
         <option>Paypal</option>
         <option>Swish</option>
     </select>
-    <button type="submit">Complete order</button>
+    <button type="submit" [disabled]="!checkoutForm.valid">Complete order</button>
 </form>

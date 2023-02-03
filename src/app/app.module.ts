@@ -13,7 +13,8 @@ import { ProductComponent } from './components/product/product.component';
 import { CartService } from './services/cart.service';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { CheckoutFormComponent } from './components/checkout-form/checkout-form.component';
-import { ReactiveFormsModule } from '@angular/forms'
+import { ReactiveFormsModule } from '@angular/forms';
+import { AdminOrderCardComponent } from './components/admin-order-card/admin-order-card.component'
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { ReactiveFormsModule } from '@angular/forms'
     ProductComponent,
     CheckoutComponent,
     CheckoutFormComponent,
+    AdminOrderCardComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,14 @@
+<div class="card">
+    <p>Order id: {{ order.id }}</p>
+    <p>Date created: {{ order.created.substring(0, 10) }}</p>
+    <p>Created by: {{ order.createdBy }}</p>
+    <p>Payment method: {{ order.paymentMethod }}</p>
+    <p>Total price: {{ order.totalPrice }}</p>
+    <h5>Products ordered:</h5>
+    <ul>
+        <li *ngFor="let product of order.orderRows">
+            <p>Product id: {{ product.productId }}</p>
+            <p>Amount: {{ product.amount }}</p>
+        </li>
+    </ul>
+</div>

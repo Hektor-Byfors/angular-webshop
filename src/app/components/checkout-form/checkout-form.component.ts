@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { orderRows } from 'src/app/models/orderRows';
 import { product } from 'src/app/models/product';
 
 @Component({
@@ -13,11 +14,11 @@ export class CheckoutFormComponent implements OnInit {
 
   totalPrice: number = 0;
 
-  orderRows: string[] = [];
+  orderRows: orderRows[] = [];
 
   checkoutForm = new FormGroup({
-    name: new FormControl(""),
-    payment: new FormControl("")
+    name: new FormControl("", [Validators.required, Validators.minLength(4)]),
+    payment: new FormControl("", [Validators.required, Validators.minLength(1)])
   })
 
   constructor(private http: HttpClient) { }
@@ -25,40 +26,34 @@ export class CheckoutFormComponent implements OnInit {
   ngOnInit(): void {
     this.cartProducts.forEach((p) => {
       this.totalPrice += p.price;
-      this.orderRows.push(p.name)
+
+      if(this.orderRows.length === 0){
+        this.orderRows.push({
+          productId: p.id,
+          product: null,
+          amount: 1
+          });
+      } else {
+        let i: number = 0;
+        this.orderRows.forEach((oD) => {
+          if(oD.productId === p.id) {
+            oD.amount++
+          } else if(i + 1 === this.orderRows.length) {
+            this.orderRows.push({
+              productId: p.id,
+              product: null,
+              amount: 1
+            })
+          } else {
+            i++
+          }
+        })
+      }
     })
   }
 
   apiPostUrl: string = "https://medieinstitutet-wie-products.azurewebsites.net/api/orders";
-
-  order = {
-    companyId: 990218,
-    created: new Date(),
-    createdBy: this.checkoutForm.value.name,
-    paymentMethod: this.checkoutForm.value.payment,
-    totalPrice: this.totalPrice,
-    status: 0,
-    orderRows: []
-  }
-
   onSubmit(){
-    /* console.log(this.order);
-    console.log({
-      companyId: 990218,
-      created: new Date(),
-      createdBy: this.checkoutForm.value.name,
-      paymentMethod: this.checkoutForm.value.payment,
-      totalPrice: this.totalPrice,
-      status: 0,
-      orderRows: this.orderRows
-    });
-    
-    console.log(this.totalPrice);
-    
-    
-    console.log(this.checkoutForm.value.name);
-    console.log(this.cartProducts); */
-    
     this.http.post(this.apiPostUrl, 
       {
         companyId: 990218,
@@ -67,16 +62,11 @@ export class CheckoutFormComponent implements OnInit {
         paymentMethod: this.checkoutForm.value.payment,
         totalPrice: this.totalPrice,
         status: 0,
-        orderRows: [
-          {
-            productId: 76,
-            product: null,
-            amount: 2
-          }
-        ]
+        orderRows: this.orderRows
       })
       .subscribe((res) => {
       console.log(res);
+      alert("Order sent")
     })
   }
 }
